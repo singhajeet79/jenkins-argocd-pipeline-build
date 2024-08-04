@@ -3,6 +3,7 @@ node {
     
     stage('Clone repository') {
 
+        
         checkout scm
     }
 
@@ -27,7 +28,7 @@ node {
     }
     
     stage('Trigger ManifestUpdate') {
-                echo "triggering updatemanifest pipeline job"
+                echo "triggering updatemanifestjob"
                 build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
         }
 }
